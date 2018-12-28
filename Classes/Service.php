@@ -79,4 +79,25 @@ class Service extends AbstractModel
    }
 
 
+    public static function getAllWhere($dbField, $param)
+    {
+        $connection = Db::getInstance();
+
+        try {
+            $query = "SELECT * FROM " . static::$tableName . " WHERE {$dbField} = {$param}";
+            $result = $connection->query($query);
+
+            $data = [];
+
+            while ($row = $result->fetch()) {
+                $data[] = static::instantiation($row);
+            }
+            return $data;
+
+        } catch (\PDOException $e) {
+            Log::addError($e);
+        }
+    }
+
+
 }

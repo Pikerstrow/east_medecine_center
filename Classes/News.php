@@ -73,4 +73,12 @@ class News extends AbstractModel
       return array_merge($this->getTitleImage(), $this->getBodyImages());
    }
 
+   public function getFirstParagraph(){
+       $firstParagraphOpenTag = mb_strpos($this->news_body, '<p>');
+       $firstParagraphCloseTag = mb_strpos($this->news_body, '</p>');
+       $paragraph = mb_substr($this->news_body, $firstParagraphOpenTag, $firstParagraphCloseTag);
+
+       return $paragraph;
+   }
+
 }

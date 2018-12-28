@@ -24,9 +24,9 @@ class Review extends AbstractModel
    public $review_text;
    public $review_date;
    public $review_status;
+   public $review_avatar;
 
-   protected $tableColumns = ['review_id', 'review_name', 'review_gender', 'review_email', 'review_text', 'review_date', 'review_status'];
-
+   protected $tableColumns = ['review_id', 'review_name', 'review_gender', 'review_email', 'review_text', 'review_date', 'review_status', 'review_avatar'];
 
 
    public static function approve($review_id)

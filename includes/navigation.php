@@ -23,7 +23,10 @@
                     <a class="nav-link" href="#News">Новини</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="prices.html">Ціни</a>
+                    <a class="nav-link" href="#Publications">Публікації</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="prices.php">Ціни</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#Reviews">Відгуки</a>

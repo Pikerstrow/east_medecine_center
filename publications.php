@@ -1,9 +1,10 @@
-<?php require_once("includes/head_news.php"); ?>
+<?php require_once("includes/head_publications.php"); ?>
 
 <?php
 
 use Clinic\Classes\News;
 use Clinic\Classes\Pagination;
+use Clinic\Classes\Publication;
 
 if ($request->has('page')) {
    $currentPage = $request->getStringParam('page', true);
@@ -11,13 +12,13 @@ if ($request->has('page')) {
    $currentPage = 1;
 }
 
-$pagination = new Pagination('news.php', $currentPage, News::countItems());
+$pagination = new Pagination('publications.php', $currentPage, Publication::countItems());
 
 
-$query = "SELECT * FROM news ORDER BY news_date DESC LIMIT {$pagination->perPage} ";
+$query = "SELECT * FROM publications ORDER BY publication_date DESC LIMIT {$pagination->perPage} ";
 $query .= "OFFSET {$pagination->offset()}";
 
-$news = News::selectByQuery($query);
+$publications = Publication::selectByQuery($query);
 
 
 ?>
@@ -52,7 +53,7 @@ $news = News::selectByQuery($query);
       <div class="carousel-inner">
          <div class="carousel-item active parallax" style="background-image: url('http://placehold.it/1900x1080/')">
             <div class="text-center slider-text">
-               <h1>Новини</h1>
+               <h1>Публікації</h1>
             </div>
          </div>
       </div>
@@ -65,59 +66,59 @@ $news = News::selectByQuery($query);
 
       <?php
       $counter = 0;
-      foreach ($news as $post) {
+      foreach ($publications as $publication) {
          $counter++;
-         if ($counter == $pagination->perPage or $counter == count($news)) {
+         if ($counter == $pagination->perPage or $counter == count($publications)) {
             ?>
 
             <div class="row">
                <div class="col-lg-5 col-md-5 text-custom">
-                  <img class="img-fluid rounded" src="<?php echo $post->news_image ?>">
+                  <img class="img-fluid rounded" src="<?php echo $publication->publication_image ?>">
                </div>
                <div class="col-lg-7 col-md-7 text-custom">
-                  <h1 class="h1-custom"><?php echo $post->news_title ?>
+                  <h1 class="h1-custom"><?php echo $publication->publication_title ?>
                      <br>
                      <small class="date-custom">
                         <?php
-                        $date = new DateTime($post->news_date);
+                        $date = new DateTime($publication->publication_date);
                         echo $date->format('d-m-Y');
                         ?>
                      </small>
                   </h1>
 
                   <?php
-                  $quantity = mb_strpos($post->news_body, "</p>");
+                  $quantity = mb_strpos($publication->publication_body, "</p>");
                   if ($quantity > 450) {
                      $quantity = 450;
                   }
-                  echo str_replace(mb_substr($post->news_body, $quantity), ' ... ', $post->news_body);
+                  echo str_replace(mb_substr($publication->publication_body, $quantity), ' ... ', $publication->publication_body);
                   ?>
-                  &nbsp;&nbsp;<a href="news1.php?news_id=<?php echo $post->news_id; ?>">Читати далі >></a>
+                  &nbsp;&nbsp;<a href="publication1.php?publication_id=<?php echo $publication->publication_id; ?>">Читати далі >></a>
                </div>
             </div>
          <?php } else { ?>
             <div class="row">
                <div class="col-lg-5 col-md-5 text-custom">
-                  <img class="img-fluid rounded" src="<?php echo $post->news_image ?>" alt="">
+                  <img class="img-fluid rounded" src="<?php echo $publication->publication_image ?>" alt="">
                </div>
                <div class="col-lg-7 col-md-7 text-custom">
-                  <h1 class="h1-custom"><?php echo $post->news_title ?>
+                  <h1 class="h1-custom"><?php echo $publication->publication_title ?>
                      <br>
                      <small class="date-custom">
                         <?php
-                        $date = new DateTime($post->news_date);
+                        $date = new DateTime($publication->publication_date);
                         echo $date->format('d-m-Y');
                         ?>
                      </small>
                   </h1>
                   <?php
-                  $quantity = mb_strpos($post->news_body, "</p>");
+                  $quantity = mb_strpos($publication->publication_body, "</p>");
                   if ($quantity > 450) {
                      $quantity = 450;
                   }
-                  echo str_replace(mb_substr($post->news_body, $quantity), ' ... ', $post->news_body);
+                  echo str_replace(mb_substr($publication->publication_body, $quantity), ' ... ', $publication->publication_body);
                   ?>
-                  &nbsp;&nbsp;<a href="news1.php?news_id=<?php echo $post->news_id; ?>">Читати далі >></a>
+                  &nbsp;&nbsp;<a href="publication1.php?publication_id=<?php echo $publication->publication_id; ?>">Читати далі >></a>
                </div>
                <hr class="hr-custom">
             </div>

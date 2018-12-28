@@ -102,6 +102,55 @@ class AbstractModel
       }
    }
 
+    /**
+ * @return array
+ * @param $limit
+ * this methods allows to select necessary quantity of records from DB and returns array of instances.
+ */
+    public static function getAllWithLimit($limit)
+    {
+        $connection = Db::getInstance();
+
+        try {
+            $query = "SELECT * FROM " . static::$tableName . " LIMIT {$limit}";
+            $result = $connection->query($query);
+
+            $data = [];
+
+            while ($row = $result->fetch()) {
+                $data[] = static::instantiation($row);
+            }
+            return $data;
+
+        } catch (\PDOException $e) {
+            Log::addError($e);
+        }
+    }
+
+    /**
+     * @return array
+     * @param $limit
+     * this methods allows to select necessary quantity of records from DB and returns array of instances.
+     */
+    public static function getWithLimitByParam($limit, $dbField, $param)
+    {
+        $connection = Db::getInstance();
+
+        try {
+            $stmt = $connection->prepare("SELECT * FROM " . static::$tableName . " WHERE {$dbField} = :param" . " LIMIT {$limit}");
+            $stmt->execute([':param' => $param]);
+
+            $data = [];
+
+            while ($row = $stmt->fetch()) {
+                $data[] = static::instantiation($row);
+            }
+            return $data;
+
+        } catch (\PDOException $e) {
+            Log::addError($e);
+        }
+    }
    /**
     * @param $dbField
     * @param $param
@@ -121,6 +170,20 @@ class AbstractModel
          Log::addError($e);
          return null;
       }
+   }
+
+
+   public static function getLast($dateField){
+       $connection = Db::getInstance();
+
+       try {
+           $stmt = $connection->query("SELECT * FROM " . static::$tableName . " WHERE {$dateField} = (SELECT MAX({$dateField}) FROM " . static::$tableName . ")");
+           $data = $stmt->fetch();
+           return $data !== false ? static::instantiation($data) : false;
+       } catch (\PDOException $e) {
+           Log::addError($e);
+           return null;
+       }
    }
 
 

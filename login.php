@@ -35,7 +35,7 @@ if($request->has('admin_login')){
 
    <div class="container" style="height:100%" >
       <div class="row justify-content-center row-container-login-form">
-         <div class="col-12 col-sm-9 col-md-7 col-lg-6 col-xl-5 align-self-center  login-form-container">
+         <div class="col-12 col-sm-8 col-md-5 col-lg-5 align-self-center  login-form-container">
             <div class="row justify-content-center">
                <div class="col-12">
                   <img class="login-logo" src="img/Logo/logo.png" title="yao wang">

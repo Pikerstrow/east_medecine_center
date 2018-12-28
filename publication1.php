@@ -4,14 +4,15 @@
 
 use Clinic\Classes\News;
 use Clinic\Classes\Pagination;
+use Clinic\Classes\Publication;
 
-if ($request->has('news_id')) {
-   $news_id = $request->getStringParam('news_id', true, true);
+if ($request->has('publication_id')) {
+   $publication_id = $request->getStringParam('publication_id', true, true);
 } else {
-   $news_id = '';
+   $publication_id = '';
 }
 
-$post = News::getByParam('news_id', $news_id);
+$publication = Publication::getByParam('publication_id', $publication_id);
 
 
 ?>
@@ -26,7 +27,7 @@ $post = News::getByParam('news_id', $news_id);
    <meta name="description" content="">
    <meta name="author" content="">
 
-   <title><?php echo $post->news_title ?></title>
+   <title><?php echo $publication->publication_title ?></title>
 
    <link rel="icon" href="img/icon/favicon.png" type="image/x-icon">
 
@@ -57,20 +58,20 @@ $post = News::getByParam('news_id', $news_id);
 <div class="container pt-5 pb-5">
    <div class="row">
       <div class="col-lg-12 col-md-12 col-xs-12 col-12">
-         <h2 class="h2-custom mt-4"><?php echo $post->news_title; ?>
+         <h2 class="h2-custom mt-4"><?php echo $publication->publication_title; ?>
             <br>
             <small class="date-custom">
                <?php
-               $date = new DateTime($post->news_date);
-               echo "Новина додана: " . $date->format('d-m-Y');
+               $date = new DateTime($publication->publication_date);
+               echo "Публікація додана: " . $date->format('d-m-Y');
                ?>
             </small>
          </h2>
          <hr>
-         <img style="width:450px;" class="img-fluid rounded float-left mr-mb" src="<?php echo $post->news_image ?>"
+         <img style="width:450px;" class="img-fluid rounded float-left mr-mb" src="<?php echo $publication->publication_image ?>"
               alt="">
          <div class="news-body">
-            <?php echo $post->news_body; ?>
+            <?php echo $publication->publication_body; ?>
          </div>
       </div>
    </div>
@@ -78,7 +79,7 @@ $post = News::getByParam('news_id', $news_id);
 </div>
 <nav class="pb-5" aria-label="Page navigation example">
    <ul class="pagination justify-content-center">
-      <li class="page-item"><a class="page-link new1-color" href="news.php">Назад до новин</a></li>
+      <li class="page-item"><a class="page-link new1-color" href="publications.php">Назад до публікацій</a></li>
    </ul>
 </nav>
 
