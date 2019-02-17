@@ -322,8 +322,17 @@ $(document).ready(function(){
         } else {
             $(img).addClass('img-responsive align-center-img');
         }
+
+        if($(this).next().is('p')){
+            var p = $(this).next().is('p');
+            if($(p).text() == "" || !$(p).text()){
+                $(this).next().remove();
+            }
+        }
+
     });
 
     $(".news-body").css('text-align', 'justify');
 
 });
+

@@ -112,40 +112,40 @@ require_once("includes/head.php"); ?>
    <div class="container">
       <div class="row">
          <div class="col-lg-3 col-md-3 col-sm-6 col-12 text-center">
-            <a href="doctor.html" class="a-custom">
+            <a href="doctor.php" class="a-custom">
                <img class="rounded-circle img-fluid" src="http://placehold.it/200x200" alt="">
             </a>
-            <a href="doctor.html" class="a-custom">
+            <a href="doctor.php" class="a-custom">
                <h1 class="pt-4 h1-custom">Anton Lorem
                   <small class="small-custom">Job Title</small>
                </h1>
             </a>
          </div>
          <div class="col-lg-3 col-md-3 col-sm-6 col-12 text-center">
-            <a href="doctor.html" class="a-custom">
+            <a href="doctor.php" class="a-custom">
                <img class="rounded-circle img-fluid" src="http://placehold.it/200x200" alt="">
             </a>
-            <a href="doctor.html" class="a-custom">
+            <a href="doctor.php" class="a-custom">
                <h1 class="pt-4 h1-custom">Anton Lorem
                   <small class="small-custom">Job Title</small>
                </h1>
             </a>
          </div>
          <div class="col-lg-3 col-md-3 col-sm-6 col-12 text-center">
-            <a href="doctor.html" class="a-custom">
+            <a href="doctor.php" class="a-custom">
                <img class="rounded-circle img-fluid" src="http://placehold.it/200x200" alt="">
             </a>
-            <a href="doctor.html" class="a-custom">
+            <a href="doctor.php" class="a-custom">
                <h1 class="pt-4 h1-custom">Anton Lorem
                   <small class="small-custom">Job Title</small>
                </h1>
             </a>
          </div>
          <div class="col-lg-3 col-md-3 col-sm-6 col-12 text-center">
-            <a href="doctor.html" class="a-custom">
+            <a href="doctor.php" class="a-custom">
                <img class="rounded-circle img-fluid" src="http://placehold.it/200x200" alt="">
             </a>
-            <a href="doctor.html" class="a-custom">
+            <a href="doctor.php" class="a-custom">
                <h1 class="pt-4 h1-custom">Anton Lorem
                   <small class="small-custom">Job Title</small>
                </h1>

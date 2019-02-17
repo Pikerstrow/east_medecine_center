@@ -40,48 +40,7 @@
   </div>
 
   <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="index.php">Yao Wang</a>
-      <button class="navbar-toggler hamburger hamburger--spin" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation" style="outline:none;">
-        <span class="navbar-toggler-icon hamburger-box">
-          <span class="hamburger-inner"></span>
-        </span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarNavDropdown">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.php">Головна<span class="sr-only">(current)</span></a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.php#AboutUs">Про нас</a>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="index.php#Servants" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Послуги</a>
-            <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-              <a class="dropdown-item" href="index.php#Servants">Послуга 1</a>
-              <a class="dropdown-item" href="index.php#Servants">Масаж</a>
-              <a class="dropdown-item" href="index.php#Servants">Послуга 3</a>
-              <a class="dropdown-item" href="index.php#Servants">Послуга 4</a>
-              <a class="dropdown-item" href="index.php#Servants">Послуга 5</a>
-            </div>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.php#News">Новини</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="prices.php">Ціни</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="index.php#Reviews">Відгуки</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#Contact">Контакти</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+  <?php require_once("includes/navigation_prices.php"); ?>
 
   <!-- FullScreen Image -->
   <header id="Navbar">
@@ -155,59 +114,7 @@
   </section>
 
   <!-- Footer -->
-  <footer class="py-5 footer-custom footer-servants" id="Contact">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 col-md-6">
-          <h2>Контакти</h2>
-          <div class="py-4">
-            <ul>
-              <li>
-                <a>Волинська обл., м. Горохів, вул. Б Хмельницького, 15</a>
-              </li>
-              <li>
-                067 753 02 93
-                <p>099 734 59 91</p>
-                <p>098 202 45 52</p>
-              </li>
-              <li>
-                rostok.volyn@gmail.com
-                <p>bondariv@i.ua</p>
-              </li>
-              <li>
-                Пн - Пт 08:00 - 18:00
-                <p>Cб - 08:00 - 14:00</p>
-                <p>Нд - Вихідний</p>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="col-lg-6 col-md-6">
-          <h2>Напишіть нам</h2>
-          <div class="py-4">
-            <form>
-              <div class="form-group">
-                <input type="text" class="form-control form-custom" aria-describedby="emailHelp" placeholder="Ваше Ім'я">
-              </div>
-              <div class="form-group">
-                <input type="email" class="form-control form-custom" placeholder="Ваша Пошта">
-              </div>
-              <div class="form-group">
-                <input type="text" class="form-control form-custom" placeholder="Ваш номер телефон">
-              </div>
-              <div class="form-group">
-                <textarea type="text" class="form-control form-custom form-textarea-custom" rows="5" placeholder="Повідомлення"></textarea>
-              </div>
-              <button type="submit" class="btn btn-primary form-btn-custom">Надіслати</button>
-            </form>
-          </div>
-        </div>
-      </div>
-      <div class="copyright-area text-center">
-        Design by <a href="http://www.poniwebstudio.com" target="_blank">Po | Ni</a> web studio
-      </div>
-    </div>
-  </footer>
+  <?php require_once("includes/footer.php"); ?>
 
   <!-- Scripts -->
   <script src="js/jquery.js"></script>
